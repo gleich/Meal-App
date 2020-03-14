@@ -3,17 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:meal_app/cateogry_meals_screen.dart';
 
 class CategoryItem extends StatelessWidget {
+  final String id;
   final String title;
   final Color color;
 
-  CategoryItem(this.title, this.color);
+  CategoryItem(this.id, this.title, this.color);
 
   void selectCategory(BuildContext ctx) {
     Navigator.of(ctx).push(
       MaterialPageRoute(
         fullscreenDialog: true,
         builder: (_) {
-          return CateogryMealsScreen();
+          return CategoryMealsScreen(id, title);
         },
       ),
     );
@@ -34,7 +35,7 @@ class CategoryItem extends StatelessWidget {
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              color.withOpacity(0.7),
+              color.withOpacity(0.6),
               color,
             ],
             begin: Alignment.topLeft,
